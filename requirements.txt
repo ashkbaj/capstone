@@ -1,7 +1,6 @@
-certifi==2022.5.18.1
-click @ file:///opt/concourse/worker/volumes/live/17ca243b-fc66-462b-4bc1-f11ad524e336/volume/click_1646056621177/work
-Flask @ file:///opt/conda/conda-bld/flask_1648041541647/work
-itsdangerous @ file:///tmp/build/80754af9/itsdangerous_1621432558163/work
-Jinja2 @ file:///opt/conda/conda-bld/jinja2_1647436528585/work
-MarkupSafe @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_d4a9444f-bd4c-4043-b47d-cede33979b0fve7bm42r/croots/recipe/markupsafe_1654597878200/work
-Werkzeug @ file:///opt/conda/conda-bld/werkzeug_1645628268370/work
+joblib~=1.1.0
+nltk~=3.7
+pandas~=1.4.2
+numpy~=1.22.3
+flask~=2.0.3
+scikit-learn~=1.0.2
