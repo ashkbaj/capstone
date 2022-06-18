@@ -9,7 +9,7 @@ body {
 }
 
 /* Style the top navigation bar */
-h1 {
+h2 {
 
   float: center;
   display: block;
@@ -27,7 +27,7 @@ h1 {
 .review {
   background-color: #ddd;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  height: 300px; /* Should be adjusted in production */
   text-align: center;
   margin:auto
 }
@@ -62,10 +62,19 @@ input[type=submit] {
 
 <div class = "review">
   <form action="/predict" method="POST" target="_blank">
- <textarea name="review_text" placeholder="Enter your question here..." rows="10" cols="15"></textarea>
+ <textarea name="review_text" placeholder="Enter your question here..." rows="5" cols="15"></textarea>
     <input type="submit" value="Submit">
   </form>
 
+    <div>
+        A Capstone Project
+        Submitted by:
+Ann Neethu John,
+Kiran Divakar,
+Mohsin Pasha,
+Sourabh Bajpai,
+Ashish Kumar Bajpai
+    </div>
 </div>
 
 
