@@ -12,7 +12,8 @@ import numpy as np
 import re
 import flask
 app = Flask(__name__)
-clf = joblib.load('modelrfc.pkl')
+#clf = joblib.load('modelrfc.pkl')
+clf = joblib.load('classification.pkl')
 count_vect = joblib.load('tfidvect.pkl')
 
 @app.route('/')
