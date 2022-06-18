@@ -60,7 +60,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    #clf = joblib.load('quora_model.pkl')
-    #count_vect = joblib.load('quora_vectorizer.pkl')
     app.run(debug=True)
-    #app.run(host='localhost', port=8081)
