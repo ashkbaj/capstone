@@ -1,6 +1,9 @@
 import joblib
 from flask import Flask, jsonify, request, render_template
 import nltk
+from keras_preprocessing.text import Tokenizer
+import keras as keras
+
 nltk.download('wordnet')
 nltk.download('punkt')
 import pandas
@@ -15,6 +18,7 @@ app = Flask(__name__)
 #clf = joblib.load('modelrfc.pkl')
 clf = joblib.load('classification.pkl')
 count_vect = joblib.load('finaltfid.pkl')
+predicate = joblib.load('accident_level_sequential.pkl')
 
 @app.route('/')
 def index():
@@ -31,8 +35,10 @@ def pre_processing(text):
     return ' '.join(word_list)
 
 
-@app.route('/predict', methods=['POST'])
-def predict():
+@app.route('/predict1', methods=['POST'])
+def predict1():
+
+
     to_predict_list = request.form.to_dict()
     review_text = pre_processing(to_predict_list['review_text'])
 
@@ -41,7 +47,8 @@ def predict():
     prob = clf.predict_proba(count_vect.transform([review_text]))
 
     print('Predict # {}'.format(pred))
-    # pr =  1
+
+
     #comment
     if prob[0][0] >= 0.5:
         prediction = "Positive"
@@ -57,6 +64,17 @@ def predict():
 
     return render_template('predict.html', prediction=prediction, prob=np.round(prob[0][0], 3) * 100)
 
+@app.route('/predict', methods=['POST'])
+def predict():
+    new_desc = ['tried energize your equipment to proceed to the installation of 4 split set at intersection 544 of Nv 3300, remove the lock and opening the electric board of 440V and 400A, and when lifting the thermomagnetic key ']
+    t = Tokenizer()
+    seq = t.texts_to_sequences(new_desc)
+    padded = keras.preprocessing.sequence.pad_sequences(seq, maxlen=200, padding='post')
+    pred = predicate.predict(padded)
+    labels = ['I', 'II', 'III', 'IV', 'V', 'VI']
+    print(pred, labels[np.argmax(pred)])
+    prediction = labels[np.argmax(pred)]
+    return render_template('predict.html', prediction=prediction, prob=90)
 
 
 if __name__ == '__main__':
