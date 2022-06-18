@@ -41,6 +41,7 @@ def predict():
 
     print('Predict # {}'.format(pred))
     # pr =  1
+    #comment
     if prob[0][0] >= 0.5:
         prediction = "Positive"
         # pr = prob[0][0]
