@@ -1,7 +1,7 @@
 import joblib
 from flask import Flask, jsonify, request, render_template
 import nltk
-from keras_preprocessing.text import Tokenizer
+from keras.preprocessing.text import Tokenizer
 import keras as keras
 
 nltk.download('wordnet')
